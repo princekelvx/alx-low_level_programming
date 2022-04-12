@@ -34,3 +34,10 @@
 6-abs.c - a function that computes the absolute value of an integer.
 
 * Prototype: int _abs(int);
+
+7-print_last_digit.c - a function that prints the last digit of a number.
+
+* Prototype: int print_last_digit(int);
+* Returns the value of the last digit
+
+8-24_hours.c - a function that prints every minute of the day of Jack Bauer, starting from 00:00 to 23:59.
