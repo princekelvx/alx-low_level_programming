@@ -2,7 +2,9 @@
 /**
  * print_sign - prints sign of numbers positive or negative
  *
- * @n - Instance to be checked
+ * @n: Instance to be checked
+ *
+ * Description: indicates the positivity or negativity of n or otherwise
  *
  * Returns: 1 0 or -1
  */
