@@ -3,6 +3,8 @@
 /**
  * add - add two numbers
  *
+ * @i: integer 1
+ * @j: integer 2
  * Return: result
  */
 
