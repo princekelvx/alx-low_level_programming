@@ -16,7 +16,7 @@ void print_times_table(int n)
 	{
 		for (i = 0; i <= n; i++)
 		{
-			/*_putchar('0');*/
+			_putchar('0');
 			for (j = 1; j <= n; j++)
 				putformat(i * j);
 			_putchar('\n');
@@ -40,7 +40,7 @@ void putformat(int n)
 		_putchar(' ');
 		_putchar(' ');
 		_putchar(' ');
-		_putchar(n + '0');
+		/*_putchar(n + '0');*/
 	}
 	else if (n < 9 && n <= 99)
 	{
