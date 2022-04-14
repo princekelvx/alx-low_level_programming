@@ -13,9 +13,9 @@ int _isdigit(int c)
 	char i = '0';
 	int digit = 0;
 
-	for (; i < '10'; i++)
+	for (; i <= '9'; i++)
 	{
-		if (i == c)
+		if (c == i)
 		{
 			digit = 1;
 			break;
