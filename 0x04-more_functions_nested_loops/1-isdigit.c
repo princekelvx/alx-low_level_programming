@@ -10,13 +10,16 @@
 
 int _isdigit(int c)
 {
-	char i;
+	char i = '0';
 	int digit = 0;
 
-	for (i = '0'; i < '10'; i++)
+	for (; i < '10'; i++)
 	{
 		if (c == i)
+		{
 			digit = 1;
+			break;
+		}
 	}
 
 	return (digit);
