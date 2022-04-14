@@ -20,11 +20,10 @@ void print_number(int n)
 }
 
 /**
- * print_integer - function to print n
+ * print_integer - A function to priting n
  * @m: an input unsigned integer
  * Return: Nothing
  */
-
 void print_integer(int m)
 {
 	int i = 1000000000;
@@ -34,4 +33,4 @@ void print_integer(int m)
 		{
 			_putchar((m / i) % 10 + '0');
 		}
-}														
+}
