@@ -12,7 +12,7 @@ void print_ref(char *s)
 
 	while (s[i] != '\0')
 	{
-		i++
+		i++;
 	}
 
 	while (i)
