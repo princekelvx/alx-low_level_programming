@@ -9,12 +9,13 @@
 
 int _atoi(char *s)
 {
-	if (*s == '\0')
-		return 0;
 
 	int res = 0;
 	int sign = 1;
 	int i = 0;
+
+	if (*s == '\0')
+		return 0;
 
 	if (s[0] == '-')
 	{
