@@ -10,18 +10,18 @@ void print_ref(char *s)
 {
 	int i;
 	int len;
-	char output;
 	int j = 0;
 
-	len = _strlen(s);
+	len = _strlen(*s);
+	char output[len];
 
 	for (i = len - 1; i >= 0; i--)
 	{
 		output[j] = s[i];
-		j++
+		j++;
 	}
 
-	int outputlen = _strlen(output);
+	int outputlen = _strlen(*output);
 	int k = 0;
 
 	while (k < outputlen)
