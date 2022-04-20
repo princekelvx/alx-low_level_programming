@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
- * print_ref - prints astring in reverse
+ * print_rev - prints astring in reverse
  *
  * @s: string in question
  */
 
-void print_ref(char *s)
+void print_rev(char *s)
 {
 	int i = 0;
 
