@@ -28,3 +28,4 @@ void print_ref(char *s)
 		_putchar(outputlen[k]);
 
 	_putchar('\n');
+}
