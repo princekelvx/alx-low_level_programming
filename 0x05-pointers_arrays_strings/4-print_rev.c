@@ -9,23 +9,14 @@
 void print_ref(char *s)
 {
 	int i;
-	int len;
-	int j = 0;
 
-	len = _strlen(*s);
-	char output[len];
-
-	for (i = len - 1; i >= 0; i--)
+	while (s[i] != '\0')
 	{
-		output[j] = s[i];
-		j++;
+		i++
 	}
 
-	int outputlen = _strlen(*output);
-	int k = 0;
-
-	while (k < outputlen)
-		_putchar(outputlen[k]);
+	while (i)
+		_putchar(s[--i]);
 
 	_putchar('\n');
 }
