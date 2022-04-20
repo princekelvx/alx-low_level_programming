@@ -3,7 +3,7 @@
 /**
  * reset_to_98 - resets value of pointer
  *
- * @*n: varable with value to be changed
+ * @n: varable with value to be changed
  */
 
 void reset_to_98(int *n)
