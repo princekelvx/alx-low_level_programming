@@ -19,10 +19,9 @@ void print_buffer(char *b, int size)
 		printf("\n");
 		return;
 	}
-
 	while (o < size)
 	{
-		j = size - o < 10 ? size - 0 : 10;
+		j = size - o < 10 ? size - o : 10;
 		printf("%08x: ", o);
 		for (i = 0; i < 10; i++)
 		{
@@ -30,12 +29,10 @@ void print_buffer(char *b, int size)
 				printf("%02x", *(b + o + i));
 			else
 				printf("  ");
-
 			if (i % 2)
 			{
 				printf(" ");
 			}
-
 		}
 		for (i = 0; i < j; i++)
 		{
@@ -47,7 +44,6 @@ void print_buffer(char *b, int size)
 			}
 			printf("%c", c);
 		}
-
 		printf("\n");
 		o += 10;
 	}
