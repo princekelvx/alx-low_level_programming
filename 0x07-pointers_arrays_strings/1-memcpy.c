@@ -5,6 +5,7 @@
  * @dest: memory area
  * @src: meo=mory area
  * @n: amount of bytes
+ * Return: pointer to copy location
  */
 
 char *_memcpy(char *dest, char *src, unsigned int n)
