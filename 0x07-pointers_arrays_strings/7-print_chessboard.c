@@ -2,8 +2,8 @@
 
 /**
  * print_chessboard - prints a chessboard
- * @a: input array
- * Return: Nil
+ * @a: array of numbers
+ * Return: nil
  */
 
 void print_chessboard(char (*a)[8])
