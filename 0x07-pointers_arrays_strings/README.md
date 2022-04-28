@@ -1,3 +1,1 @@
-0-memset.c - fills memory with constant byte
-
-
+More pointers, arrays and strings. Yay! :(
