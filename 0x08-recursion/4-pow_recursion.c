@@ -20,9 +20,9 @@ int _pow_recursion(int x, int y)
 
 	if (y % 2 == 0)
 	{
-		m = power(x, y/2);
+		m = _pow_recursion(x, y/2);
 		return (m * m);
 	}
 	else
-		return (x * power(x, y - 1));
+		return (x * _pow_recursion(x, y - 1));
 }
