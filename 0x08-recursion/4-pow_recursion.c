@@ -19,8 +19,8 @@ int _pow_recursion(int x, int y)
 	if (y % 2 == 0)
 	{
 		if (y == 2)
-			return x * x;
-		return _pow_recursion(_pow_recursion(x, y / 2), 2);
+			return (x * x);
+		return (_pow_recursion(_pow_recursion(x, y / 2), 2));
 	}
 	else
 		return (x * _pow_recursion(x, y - 1));
