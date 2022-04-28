@@ -12,17 +12,17 @@ int _pow_recursion(int x, int y)
 {
 	int m;
 
-	//base case
+	/* base caae */
 	if (y < 0)
 		return (-1);
-	if (n == 0)
+	if (x == 0)
 		return (1);
 
-	if (n % 2 == 0)
+	if (y % 2 == 0)
 	{
-		m = power(x, n/2);
+		m = power(x, y/2);
 		return (m * m);
 	}
 	else
-		return (x * power(x, n - 1));
+		return (x * power(x, y - 1));
 }
