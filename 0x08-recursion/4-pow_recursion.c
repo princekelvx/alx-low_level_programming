@@ -10,18 +10,17 @@
 
 int _pow_recursion(int x, int y)
 {
-	int m;
-
-	/* base caae */
+	/* base case */
 	if (y < 0)
 		return (-1);
-	if (x == 0)
+	if (y == 0)
 		return (1);
 
 	if (y % 2 == 0)
 	{
-		m = _pow_recursion(x, y/2);
-		return (m * m);
+		if (y == 2)
+			return x * x;
+		return _pow_recursion(_pow_recursion(x, y / 2), 2);
 	}
 	else
 		return (x * _pow_recursion(x, y - 1));
