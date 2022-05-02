@@ -42,7 +42,8 @@ int main(int argc, char **argv)
 		{
 			coins += amount / 2;
 			amount = amount % 2;
-		}	
+		}
+	}
 	else
 	{
 		printf("Error\n");
