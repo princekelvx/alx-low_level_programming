@@ -10,6 +10,8 @@
 int main(int argc, **argv)
 {
 	while (argc--)
+	{
 		printf("%s\n", *argv++);
+	}
 	return (0);
 }
