@@ -48,4 +48,4 @@ char **strtow(char *str)
 	}
 	array[k] = NULL;
 	return (array);
-}	
+}
