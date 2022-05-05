@@ -9,12 +9,12 @@
  * or NULL if ac == 0, av == 0 or failure
  */
 
-char *argstostr(int ac, int **av)
+char *argstostr(int ac, char **av)
 {
 	char *new_str;
 	int len = 0, i = 0, j, k = 0;
 
-	if (ac <= 0 || av = NULL)
+	if (ac <= 0 || av == NULL)
 		return (NULL);
 
 	for (; i < ac; i++)
