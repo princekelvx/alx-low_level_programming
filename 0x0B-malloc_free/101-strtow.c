@@ -12,11 +12,11 @@ char **strtow(char *str)
 	char **array;
 	int i = 0, j, m, k = 0, len = 0, count = 0;
 
-	if (str == NULL || *str == '\n')
+	if (str == NULL || *str == '\0')
 		return (NULL);
-	for(; str[i]; i++)
+	for (; str[i]; i++) 
 	{
-		if ((str[i] != ' ' || *str != '\t') && 
+		if ((str[i] != ' ' || *str != '\t') &&
 				((str[i + 1] == ' ' || str[i + 1] == '\t') || str[i + 1] == '\n'))
 			count++;
 	}
