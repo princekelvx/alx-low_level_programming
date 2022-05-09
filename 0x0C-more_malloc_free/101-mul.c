@@ -1,151 +1,137 @@
 #include "main.h"
+#include <stdio.h>
 #include <stdlib.h>
-
 /**
- * _atoi_digit - convert a char to integer.
- * @x: character to convert.
- * Return: integer.
- **/
-
-int _atoi_digit(char x)
+  * int_calloc - special calloc but 4 int arrays
+  * @nmemb: n memb
+  * @size: size of array
+  * Return: int *
+  */
+int *int_calloc(int nmemb, unsigned int size)
 {
-unsigned int res;
-
-if (x <= '9' && x >= '0')
-res = x - '0';
-return (res);
-}
-
-/**
- * _isNumber - Define if a string is a number.
- * @argv: Pointer to string.
- * Return: success (0).
- **/
-int _isNumber(char *argv)
-{
-int i;
-
-for (i = 0; argv[i]; i++)
-if (argv[i] < 48 || argv[i] > 57)
-return (1);
-return (0);
+	/* declarations */
+	int *p, n;
+	/* checking inputs */
+	if (nmemb == 0 || size == 0)
+		return (NULL);
+	/* malloc the space & check for fail */
+	p = malloc(nmemb * size);
+	if (p == NULL)
+		return (NULL);
+	/* calloc */
+	for (n = 0; n < nmemb; n++)
+		p[n] = 0;
+	return (p);
 }
 
 /**
- *_calloc - allocate array of size * nmemb.
- * @nmemb: number of elements.
- * @size: size of element.
- * Return: pointer to array.
- **/
-
-void *_calloc(unsigned int nmemb, unsigned int size)
+  * mult - multiplication
+  * @product: int * 4 answer
+  * @n1: string num1
+  * @n2: string num2
+  * @len1: len num1
+  * @len2: len num2
+  * Return: void
+  */
+void mult(int *product, char *n1, char *n2, int len1, int len2)
 {
-char *tab;
-unsigned int i;
-
-tab = malloc(size * nmemb);
-
-if (tab == NULL)
-return (NULL);
-
-for (i = 0; i < (size * nmemb); i++)
-tab[i] = '0';
-
-return (tab);
+	/* declarations */
+	int i;
+	int j;
+	int f1, f2;
+	int sum;
+	/* the long math */
+	for (i = len1 - 1; i >= 0; i--)
+	{
+		sum = 0;
+		f1 = n1[i] - '0';
+		for (j = len2 - 1; j >= 0; j--)
+		{
+			f2 = n2[j] - '0';
+			sum += product[i + j + 1] + (f1 * f2);
+			product[i + j + 1] = sum % 10;
+			sum /= 10;
+		}
+		if (sum > 0)
+			product[i + j + 1] += sum;
+	}
+	for (i = 0; product[i] == 0 && i < len1 + len2; i++)
+	{}
+	if (i == len1 + len2)
+		_putchar('0');
+	for (; i < len1 + len2; i++)
+		_putchar(product[i] + '0');
+	_putchar('\n');
 }
 
 /**
- * mul_array - multiply two arrays.
- * @a1: first array.
- * @len1: length of array a1.
- * @a2:  char.
- * @a3: array for result.
- * @lena: length of array a3.
- * Return: pointer to array.
- **/
-
-void *mul_array(char *a1, int len1, char a2, char *a3, int lena)
+  * is_valid - is the number a valid one
+  * @num : char string num
+  * Return: int, 1 if true 0 if false
+  */
+int is_valid(char *num)
 {
-int mul = 0, i, k;
-
-k = lena;
-for (i = len1 - 1; i >= 0 ; i--)
-{
-mul += (a1[i] - '0') * (a2 - '0') + (a3[k] - '0');
-a3[k] = (mul % 10) + '0';
-mul /= 10;
-k--;
-}
-
-while (mul != 0)
-{
-mul += a3[k] - '0';
-a3[k] = (mul % 10) + '0';
-mul /= 10;
-k--;
-}
-
-return (a3);
+	/* declarations */
+	int i;
+	/* checking for ints */
+	for (i = 0; num[i]; i++)
+	{
+		if (num[i] < '0' || num[i] > '9')
+			return (0);
+	}
+	return (1);
 }
 /**
- * print_array - print all digits of array.
- * @nb: number of elements to print.
- * @a: array of elements.
- **/
-void print_array(char *a, int nb)
+  * err - errors r us
+  * @status: error code 4 exit
+  * Return: void
+  */
+void err(int status)
 {
-int i = 0;
-
-while (a[i] == '0' && (i + 1) < nb)
-{
-i++;
+	_putchar('E');
+	_putchar('r');
+	_putchar('r');
+	_putchar('o');
+	_putchar('r');
+	_putchar('\n');
+	exit(status);
 }
-for (; i < nb; i++)
-{
-_putchar(a[i]);
-}
-_putchar('\n');
-}
-
 /**
- *main - print the multiplication of 2 numbers.
- *@argc: array length.
- *@argv: array.
- *Return: 0.
- */
-
-int main(int argc, char *argv[])
+  * main - getting the args
+  * @argc: args #
+  * @argv: arg array
+  * Return: 0
+  */
+int main(int argc, char **argv)
 {
-int i, c, len1, len2, lenres;
-char E[6] = {'E', 'r', 'r', 'o', 'r', '\n'};
-char *tabres;
-
-if (argc != 3 || _isNumber(argv[1]) == 1 || _isNumber(argv[2]) == 1)
-{
-for (i = 0; i < 6; i++)
-{
-_putchar(E[i]);
-}
-exit(98);
-}
-for (len1 = 0; argv[1][len1]; len1++)
-;
-for (len2 = 0; argv[2][len2]; len2++)
-;
-lenres = len1 + len2;
-tabres = _calloc(lenres, sizeof(int));
-if (tabres == NULL)
-{
-free(tabres);
-return (0);
-}
-for (i = len2 - 1, c = 0; i >= 0; i--)
-{
-tabres = mul_array(argv[1], len1, argv[2][i], tabres, (lenres - 1 - c));
-c++;
-}
-print_array(tabres, lenres);
-free(tabres);
-exit(EXIT_SUCCESS);
-return (0);
+	/* declarations */
+	int i, j, len1 = 0, len2 = 0;
+	int *res;
+	/* too many args? too few? */
+	if (argc != 3)
+	{
+		err(98);
+	}
+	/* using isvalid */
+	for (i = 1; i < argc; i++)
+	{
+		if (!(is_valid(argv[i])))
+			err(98);
+		if (i == 1)
+		{
+			for (j = 0; argv[i][j]; j++)
+				len1++;
+		}
+		if (i == 2)
+		{
+			for (j = 0; argv[i][j]; j++)
+				len2++;
+		}
+	}
+	res = int_calloc(len1 + len2, sizeof(int));
+	if (res == NULL)
+		err(98);
+	mult(res, argv[1], argv[2], len1, len2);
+	free(res);
+	return (0);
 }
