@@ -6,9 +6,8 @@
  * @name: Dog's name
  * @age: Dog's age
  * @owner: Dog's owner
- * Return: a pointer to a newly created dog struct
+ * Return: returns a pointer to newly created dog structure
  */
-
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *new_dog;
@@ -32,7 +31,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 		return (NULL);
 	for (i = 0; name[i]; i++)
 		cpyname[i] = name[i];
-	cpyname[i] = '\n';
+	cpyname[i] = '\0';
 
 	cpyowner = malloc(len_owner + 1);
 	if (cpyowner == NULL)
