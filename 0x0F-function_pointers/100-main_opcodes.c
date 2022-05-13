@@ -1,36 +1,39 @@
-#include <stdio.h>
-#include <stdlib.h>
+void print_opcodes(char *a, int n)
+{
+int i;
+
+for (i = 0; i < n; i++)
+{
+printf("%.2hhx", a[i]);
+if (i < n - 1)
+printf(" ");
+}
+printf("\n");
+
+}
 
 /**
- * main - prints opcode of own main funct
- * @argc: arg count
- * @argv: arg value
- * Return: 1 oe 2 on fail, 0 otherwise
+ * main - prints the opcodes of its own main function
+ * @argc: number of arguments passed to the function
+ * @argv: array of pointers to arguments
+ *
+ * Return: always O
  */
-
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
-	int bytes, i;
-	unsigned char *func_ptr;
+int n;
 
-	if (argc != 2)
-	{
-		printf("Error\n");
-		exit(1);
-	}
-	bytes = atoi(argv[1]);
-	if (bytes < 0)
-	{
-		printf("Error\n");
-		exit(2);
-	}
-	func_ptr = (unsigned char *)main;
-	i = 0;
-	if (bytes > 0)
-	{
-		while (i < (bytes - 1))
-			printf("%02hhx ", func_ptr[i++]);
-		printf("%hhx\n", func_ptr[i]);
-	}
-	return (0);
+if (argc != 2)
+{
+printf("Error\n");
+exit(1);
+}
+n = atoi(argv[1]);
+if (n < 0)
+{
+printf("Error\n");
+exit(2);
+}
+print_opcodes((char *)&main, n);
+return (0);
 }
