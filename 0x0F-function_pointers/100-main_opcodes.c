@@ -11,7 +11,7 @@
 int main(int argc, char *argv[])
 {
 	int bytes, i;
-	unsigned char *funct_ptr;
+	unsigned char *func_ptr;
 
 	if (argc != 2)
 	{
