@@ -1,3 +1,12 @@
+#include <stdlib.h>
+#include <stdio.h>
+
+/**
+ * print_opcodes - print opcodes of this program
+ * @a: address of the main function
+ * @n: number of bytes to print
+ */
+
 void print_opcodes(char *a, int n)
 {
 int i;
