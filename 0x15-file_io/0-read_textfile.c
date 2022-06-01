@@ -9,8 +9,7 @@
 
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int fd;
-	int rcont, wcont;
+	int fd, rcont, wcont;
 	char *cont;
 
 	if (filename == NULL)
@@ -41,3 +40,4 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	free(cont);
 	return (wcont);
 }
+
